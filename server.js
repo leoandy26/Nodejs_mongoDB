@@ -14,12 +14,7 @@ mongoose
   .then(() => console.log("Connected to MongoDB."))
   .catch((err) => console.log(err));
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  next();
-});
-
-app.get("/api/v1/ggg", async (req, res) => {
+app.get("/api/v1/thread", async (req, res) => {
   try {
     const allThreads = await Thread.find({});
     res.status(200).json(allThreads);
@@ -28,7 +23,7 @@ app.get("/api/v1/ggg", async (req, res) => {
   }
 });
 
-app.post("/api/v1/ggg", async (req, res) => {
+app.post("/api/v1/thread", async (req, res) => {
   try {
     const createThread = await Thread.create(req.body);
     res.status(200).json(createThread);
@@ -36,5 +31,4 @@ app.post("/api/v1/ggg", async (req, res) => {
     console.log(err);
   }
 });
-
 app.listen(PORT, console.log(`Server is running on port ${PORT}.`));
