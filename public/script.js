@@ -78,7 +78,7 @@ let inputContentText = "";
 
 const getAllThreads = async () => {
   try {
-    let allThreads = await axios.get("/api/v1/threads");
+    let allThreads = await axios.get("/api/v1/ggg");
     console.log(allThreads);
     let { data } = allThreads;
     allThreads = data
