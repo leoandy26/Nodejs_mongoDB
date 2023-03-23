@@ -14,6 +14,11 @@ mongoose
   .then(() => console.log("Connected to MongoDB."))
   .catch((err) => console.log(err));
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+  next();
+});
+
 app.get("/api/v1/thread", async (req, res) => {
   try {
     const allThreads = await Thread.find({});
